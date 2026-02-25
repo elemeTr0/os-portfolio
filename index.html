@@ -2,11 +2,18 @@
 <head>
     <title>OS Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preload" as="image" href="img/background.jpg">
     <script src="script.js"></script>
 </head>
-<body background="img/background.jpg" style="background-repeat: no-repeat; background-size: cover;">
+<body id ="background" background="img/background.jpg" style="background-repeat: no-repeat; background-size: cover; background-position: center">
 <div id="desktop">
-    <div class="deskIc"><img src="img/computer.png"><span>This PC</span></div>
+    <div class="deskIc" id="me"><img src="img/user.png"><span>Me</span></div>
+
+    <div class="window">
+        <div class="hidden" id="meWin"></div>
+
+    </div>
+
     <div class="deskIc"><img src="img/microsoft.png"><span>Microsoft Edge</span></div>
 </div>
 <div id="taskbar">

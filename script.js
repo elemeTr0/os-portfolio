@@ -1,4 +1,22 @@
 document.addEventListener('DOMContentLoaded', function() {
+    window.addEventListener("load", function() {
+        document.body.style.visibility = "visible";
+    });
+
+    let w = window.innerWidth;
+    let h = window.innerHeight;
+
+    let back = document.getElementById("background")
+
+    back.style.height = h;
+    back.style.width = w;
+
+    let me = document.getElementById("me");
+
+    me.addEventListener("dblclick", function () {
+        document.getElementById("meWin").classList.toggle("hidden");
+    });
+
     let icons = document.getElementsByClassName('deskIc');
 
     function removeActiveFromAll() {
@@ -52,6 +70,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
     updateDate();
     startMidnightUpdates();
-
-
 });
