@@ -3,15 +3,24 @@
     <title>OS Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preload" as="image" href="img/background.jpg">
-    <script src="script.js"></script>
 </head>
 <body id ="background" background="img/background.jpg" style="background-repeat: no-repeat; background-size: cover; background-position: center">
 <div id="desktop">
     <div class="deskIc" id="me"><img src="img/user.png"><span>Me</span></div>
 
     <div class="window">
-        <div class="hidden" id="meWin"></div>
-
+        <div id="meWin">
+            <div class="toolbar" id="meWinToolbar">
+                <div class="buttons">
+                    <button>&ndash;</button>
+                    <button>&#x2750;</button>
+                    <button id="close">&#10006;</button>
+                </div>
+            </div>
+        <div class="content">
+            <!-- window content here -->
+        </div>
+        </div>
     </div>
 
     <div class="deskIc"><img src="img/microsoft.png"><span>Microsoft Edge</span></div>
@@ -27,5 +36,7 @@
         <p id="date"></p>
     </div>
 </div>
+<script src="script.js"></script>
+<script src="draggable.js"></script>
 </body>
 </html>

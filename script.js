@@ -8,14 +8,44 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let back = document.getElementById("background")
 
-    back.style.height = h;
-    back.style.width = w;
+    back.style.height = parseInt(h);
+    back.style.width = parseInt(w);
 
     let me = document.getElementById("me");
+    let close = document.getElementById("close");
+    let meWin = document.getElementById("meWin");
 
-    me.addEventListener("dblclick", function () {
-        document.getElementById("meWin").classList.toggle("hidden");
-    });
+    function openWindow() {
+        // show instantly
+        meWin.style.display = "block";
+
+        // set starting state
+        meWin.style.opacity = "0";
+        meWin.style.transform = "scale(0.95)";
+
+        // trigger animation on next frame
+        requestAnimationFrame(() => {
+            meWin.style.transition = "opacity 0.3s ease, transform 0.3s ease";
+            meWin.style.opacity = "1";
+            meWin.style.transform = "scale(1)";
+        });
+    }
+
+    function closeWindow() {
+        // animate out
+        meWin.style.opacity = "0";
+        meWin.style.transform = "scale(0.95)";
+
+        // after transition ends, hide completely
+        meWin.addEventListener("transitionend", function handler() {
+            meWin.style.display = "none";
+            meWin.removeEventListener("transitionend", handler);
+        });
+    }
+
+
+    me.addEventListener("dblclick", openWindow);
+    close.addEventListener("click", closeWindow);
 
     let icons = document.getElementsByClassName('deskIc');
 
